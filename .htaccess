@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+RewriteCond %{HTTP_HOST} !^www\.encoregroup\.in [NC]
+RewriteRule (.*) https://www.encoregroup.in/$1 [R=301,L]
+RedirectPermanent /program-application-form.php /contact-us
+ErrorDocument 404 /404.php
+</IfModule>
